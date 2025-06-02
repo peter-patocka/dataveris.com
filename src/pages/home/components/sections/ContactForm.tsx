@@ -26,7 +26,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <h5 className="mb-[18px] text-lg font-semibold text-dark dark:text-white">
-                        Our Location
+                        Address
                       </h5>
                       <p className="text-base text-body-color dark:text-dark-6">
                         5900 Balcones Drive #20540
