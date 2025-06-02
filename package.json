@@ -17,7 +17,7 @@
     "postinstall": "bash postinstall.sh",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "husky": {
     "hooks": {
