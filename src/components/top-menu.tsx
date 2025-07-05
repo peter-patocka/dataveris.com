@@ -1,4 +1,4 @@
-import logoWhite from '../../../assets/images/logo/logo.png';
+import logoWhite from '../assets/images/logo/logo.png';
 
 interface TopMenuProps {
   hideMenu?: boolean;
@@ -10,7 +10,7 @@ const TopMenu = (props: TopMenuProps) => {
       <div className="container px-4 mx-auto">
         <div className="relative flex items-center justify-between -mx-4">
           <div className="max-w-full px-4 w-60">
-            <a href="/" className="block w-full py-5 navbar-logo">
+            <a href="/public" className="block w-full py-5 navbar-logo">
               <img src={logoWhite} alt="logo" className="w-full header-logo" />
             </a>
           </div>

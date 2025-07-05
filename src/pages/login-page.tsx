@@ -1,6 +1,6 @@
-import Footer from '@/pages/home/components/footer';
-import Login from '@/pages/home/components/sections/Login';
-import TopMenu from '@/pages/home/components/top-menu';
+import Footer from '@/components/footer.tsx';
+import Login from '@/components/sections/Login';
+import TopMenu from '@/components/top-menu.tsx';
 import useInitScript from '@/pages/useInitScript';
 
 const LoginPage = () => {

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 
-import logoWhite from '../../../../assets/images/logo/logo.png';
+import logoWhite from '../../assets/images/logo/logo.png';
 
 const Login = () => {
   const [errorClass, setErrorClass] = useState('');
@@ -27,7 +27,7 @@ const Login = () => {
                 <ul className="flex items-center justify-center gap-[10px]">
                   <li>
                     <a
-                      href="/"
+                      href="/public"
                       className="flex items-center gap-[10px] text-base font-medium text-dark dark:text-white"
                     >
                       Home

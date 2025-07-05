@@ -1,7 +1,7 @@
-import Footer from '@/pages/home/components/footer';
-import HomeBanner from '@/pages/home/components/home-banner';
-import Sections from '@/pages/home/components/sections';
-import TopMenu from '@/pages/home/components/top-menu';
+import Footer from '@/components/footer.tsx';
+import HomeBanner from '@/components/home-banner.tsx';
+import Sections from '@/components/sections.tsx';
+import TopMenu from '@/components/top-menu.tsx';
 import useInitScript from '@/pages/useInitScript';
 
 const HomePage = () => {
