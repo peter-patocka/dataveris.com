@@ -8,18 +8,12 @@ Site: https://dataveris.com
 
 - Node.js 16+ and pnpm
 
-## Getting started
+## Getting Started
 
-Run the following command on your local environment:
+First, run the development server:
 
-```shell
-pnpm install
+```bash
+pnpm dev
 ```
 
-Then, you can run locally in development mode with live reload:
-
-```shell
-pnpm run dev
-```
-
-Open http://localhost:5173 with your favorite browser to see your project.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

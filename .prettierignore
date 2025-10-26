@@ -1,4 +1,10 @@
+# Ignore artifacts:
 build
-node_modules
+coverage
+dist
+out
 public
-templates
+styles
+node_modules
+.next
+.vscode
