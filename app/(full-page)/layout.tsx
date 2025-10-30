@@ -7,7 +7,7 @@ interface SimpleLayoutProps {
 }
 
 export const metadata: Metadata = {
-    title: 'Dataveris | Secure Software & Compliant by Design.',
+    title: 'Dataveris | Secure Software & Compliant by Design',
     description: 'Dataveris is a U.S.-based software development and compliance consulting firm specializing in delivering secure, scalable, and regulation-ready digital solutions.'
 };
 
