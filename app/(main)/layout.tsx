@@ -6,18 +6,10 @@ interface AppLayoutProps {
 }
 
 export const metadata: Metadata = {
-    title: 'PrimeReact Sakai',
-    description: 'The ultimate collection of design-agnostic, flexible and accessible React UI Components.',
+    title: 'Dataveris | Secure Software & Compliant by Design',
+    description: 'Dataveris is a U.S.-based software development and compliance consulting firm specializing in delivering secure, scalable, and regulation-ready digital solutions.',
     robots: { index: false, follow: false },
     viewport: { initialScale: 1, width: 'device-width' },
-    openGraph: {
-        type: 'website',
-        title: 'PrimeReact SAKAI-REACT',
-        url: 'https://sakai.primereact.org/',
-        description: 'The ultimate collection of design-agnostic, flexible and accessible React UI Components.',
-        images: ['https://www.primefaces.org/static/social/sakai-react.png'],
-        ttl: 604800
-    },
     icons: {
         icon: '/favicon.ico'
     }
