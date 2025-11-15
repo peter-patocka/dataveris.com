@@ -8,18 +8,25 @@ Site: https://dataveris.com
 
 - Node.js 16+ and pnpm
 
-## Getting started
+## Getting Started
 
-Run the following command on your local environment:
+First, run the development server:
 
-```shell
-pnpm install
+```bash
+pnpm dev
 ```
 
-Then, you can run locally in development mode with live reload:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```shell
-pnpm run dev
+## Deploy to GitHub pages
+
+Build + static export + gh-pages publish are all wired up in one command:
+
+```bash
+pnpm run deploy
 ```
 
-Open http://localhost:5173 with your favorite browser to see your project.
+### What it does
+
+* `predeploy` runs automatically → builds Next.js into /dist
+* `deploy` publishes the dist/ folder to the gh-pages branch using gh-pages package.

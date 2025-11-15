@@ -1,15 +1,13 @@
-# Default
+# Editor configuration, see https://editorconfig.org
 root = true
 
 [*]
-indent_style = space
-indent_size = 2
-tab_width = 2
-end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
 insert_final_newline = true
+trim_trailing_whitespace = true
 
-# Override for Markdown, JSON, YAML (optional)
-[*.{md,json,yml,yaml}]
+[*.md]
+max_line_length = off
 trim_trailing_whitespace = false
