@@ -12,7 +12,7 @@
         "lint": "next lint",
         "test": "pnpm run lint && pnpm run format:check",
         "predeploy": "pnpm run build",
-        "deploy": "gh-pages -d dist"
+        "deploy": "gh-pages -d dist --nojekyll --cname dataveris.com"
     },
     "dependencies": {
         "@types/node": "20.3.1",
