@@ -18,12 +18,14 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deploy to GitHub pages
+## Deploy to GitHub pages manually
 
-Build + static export + gh-pages publish are all wired up in one command:
+Application is automatically deployed from main branch.
+
+However, if you need to publish from local environment, build + static export + gh-pages publish are all wired up in one command:
 
 ```bash
-pnpm run deploy
+pnpm run deploy-local
 ```
 
 ### What it does
