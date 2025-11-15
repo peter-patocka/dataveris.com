@@ -1,0 +1,41 @@
+name: Deploy Frontend
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        name: Build & Deploy
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '18'
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Install packages
+              run: pnpm install --frozen-lockfile
+
+            - name: Run tests
+              run: pnpm test
+
+            - name: Set Git identity
+              run: |
+                    git config --global user.name "Peter Patocka"
+                    git config --global user.email "patocka.peter@gmail.com"
+
+            - name: Deploy
+              run: pnpm run deploy
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

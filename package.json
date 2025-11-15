@@ -12,7 +12,8 @@
         "lint": "next lint",
         "test": "pnpm run lint && pnpm run format:check",
         "predeploy": "pnpm run build",
-        "deploy": "gh-pages -d dist --nojekyll --cname dataveris.com"
+        "deploy": "gh-pages -d dist --nojekyll --cname dataveris.com -r https://x-access-token:$GH_TOKEN@github.com/peter-patocka/dataveris.com.git",
+        "deploy-local": "gh-pages -d dist --nojekyll --cname dataveris.com"
     },
     "dependencies": {
         "@types/node": "20.3.1",
