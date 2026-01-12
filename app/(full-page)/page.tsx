@@ -9,11 +9,32 @@ import { Ripple } from 'primereact/ripple';
 import { Divider } from 'primereact/divider';
 import { NodeRef } from '@/types';
 import { classNames } from 'primereact/utils';
+import { useScrollAnimation, useInitialAnimation } from '@/app/hooks/useScrollAnimation';
+import styles from '@/styles/animations/scroll-animations.module.scss';
 
 const Dashboard = () => {
     const [isHidden, setIsHidden] = useState(false);
     const menuRef = useRef<HTMLElement | null>(null);
     const isPricingSectionEnabled = false;
+
+    // Hero section animations (initial load)
+    const heroHeadlineVisible = useInitialAnimation(100);
+    const heroSubheadlineVisible = useInitialAnimation(220);
+    const heroCtaVisible = useInitialAnimation(340);
+    const heroImageVisible = useInitialAnimation(500);
+
+    // About section animation
+    const aboutSection = useScrollAnimation({ threshold: 0.2 });
+
+    // Services section animation
+    const servicesSection = useScrollAnimation({ threshold: 0.1 });
+
+    // Industries section animations
+    const industriesHeader = useScrollAnimation({ threshold: 0.2 });
+    const industry1 = useScrollAnimation({ threshold: 0.2 });
+    const industry2 = useScrollAnimation({ threshold: 0.2 });
+    const industry3 = useScrollAnimation({ threshold: 0.2 });
+    const industry4 = useScrollAnimation({ threshold: 0.2 });
 
     const toggleMenuItemClick = () => {
         setIsHidden((prevState) => !prevState);
@@ -84,13 +105,17 @@ const Dashboard = () => {
                     }}
                 >
                     <div className="mx-4 md:mx-8 mt-0 md:mt-4">
-                        <h1 className="text-6xl font-bold text-gray-900 line-height-2">
+                        <h1 className={`text-6xl font-bold text-gray-900 line-height-2 ${styles.heroHeadline} ${heroHeadlineVisible ? styles.visible : ''}`}>
                             <span className="font-light block">Secure Software</span> Compliant by Design
                         </h1>
-                        <p className="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Custom-built software and consulting services that meet your industry&#39;s strictest regulatory standards—HIPAA, SOC 2, PCI-DSS, and more... </p>
-                        <Button type="button" label="Get a Free Consultation" rounded className="text-xl border-none mt-3 bg-blue-500 font-normal line-height-3 px-3 text-white mb-4" onClick={sendMail}></Button>
+                        <p className={`font-normal text-2xl line-height-3 md:mt-3 text-gray-700 ${styles.heroSubheadline} ${heroSubheadlineVisible ? styles.visible : ''}`}>
+                            Custom-built software and consulting services that meet your industry&#39;s strictest regulatory standards—HIPAA, SOC 2, PCI-DSS, and more...{' '}
+                        </p>
+                        <div className={`${styles.heroCta} ${heroCtaVisible ? styles.visible : ''}`}>
+                            <Button type="button" label="Get a Free Consultation" rounded className="text-xl border-none mt-3 bg-blue-500 font-normal line-height-3 px-3 text-white mb-4" onClick={sendMail}></Button>
+                        </div>
                     </div>
-                    <div className="flex justify-content-center md:justify-content-end">
+                    <div className={`flex justify-content-center md:justify-content-end ${styles.heroImage} ${heroImageVisible ? styles.visible : ''}`}>
                         <img src="/demo/images/landing/screen-1.png" alt="Hero Image" className="w-9 md:w-auto" />
                     </div>
                 </div>
@@ -98,7 +123,8 @@ const Dashboard = () => {
                 <div id="about" className="py-4 px-4 lg:px-8 mt-5 mx-0 lg:mx-8">
                     <div className="grid justify-content-center">
                         <div
-                            className="col-12 mt-8 mb-8 p-2 md:p-8"
+                            ref={aboutSection.ref}
+                            className={`col-12 mt-8 mb-8 p-2 md:p-8 ${styles.fadeInUp} ${aboutSection.isVisible ? styles.visible : ''}`}
                             style={{
                                 borderRadius: '20px',
                                 background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, #EFE1AF 0%, #C3DCFA 100%)'
@@ -116,11 +142,11 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 text-center mt-8 mb-4" id="services">
+                        <div ref={servicesSection.ref} className={`col-12 text-center mt-8 mb-4 ${styles.fadeInUp} ${servicesSection.isVisible ? styles.visible : ''}`} id="services">
                             <h2 className="text-900 font-normal mb-2">Services</h2>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-1']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -146,7 +172,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-2']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -171,7 +197,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pb-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pb-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-3']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -196,7 +222,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-4']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -222,7 +248,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-5']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -247,7 +273,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pb-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pb-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-6']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -272,7 +298,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pr-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-7']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -298,7 +324,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg:pr-5 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-8']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -323,7 +349,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-12 md:col-12 lg:col-4 p-0 lg-4 mt-4 lg:mt-0">
+                        <div className={`col-12 md:col-12 lg:col-4 p-0 lg-4 mt-4 lg:mt-0 ${styles.fadeInScale} ${styles['stagger-9']} ${servicesSection.isVisible ? styles.visible : ''}`}>
                             <div
                                 style={{
                                     height: '190px',
@@ -351,11 +377,11 @@ const Dashboard = () => {
                 </div>
 
                 <div id="our-mission" className="py-4 px-4 lg:px-8 mx-0 my-6 lg:mx-8">
-                    <div className="text-center">
+                    <div ref={industriesHeader.ref} className={`text-center ${styles.fadeInUp} ${industriesHeader.isVisible ? styles.visible : ''}`}>
                         <h2 className="text-900 font-normal mb-2">Industries we serve</h2>
                     </div>
 
-                    <div className="grid mt-8 pb-2 md:pb-8">
+                    <div ref={industry1.ref} className={`grid mt-8 pb-2 md:pb-8 ${styles.fadeInUp} ${industry1.isVisible ? styles.visible : ''}`}>
                         <div className="flex justify-content-center col-12 lg:col-6 bg-purple-100 p-0 flex-order-1 lg:flex-order-0" style={{ borderRadius: '8px' }}>
                             <img src="/demo/images/landing/doctor-and-patients.svg" className="w-11 mt-4 mb-4" alt="Healthcare" />
                         </div>
@@ -378,7 +404,7 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="grid my-8 pt-2 md:pt-8">
+                    <div ref={industry2.ref} className={`grid my-8 pt-2 md:pt-8 ${styles.fadeInUp} ${industry2.isVisible ? styles.visible : ''}`}>
                         <div className="col-12 lg:col-6 my-auto flex flex-column text-center lg:text-left lg:align-items-start">
                             <div
                                 className="flex align-items-center justify-content-center bg-yellow-200 align-self-center lg:align-self-start"
@@ -401,7 +427,7 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="grid mt-8 pb-2 md:pb-8">
+                    <div ref={industry3.ref} className={`grid mt-8 pb-2 md:pb-8 ${styles.fadeInUp} ${industry3.isVisible ? styles.visible : ''}`}>
                         <div className="flex justify-content-center col-12 lg:col-6 bg-blue-100 p-0 flex-order-1 lg:flex-order-0" style={{ borderRadius: '8px' }}>
                             <img src="/demo/images/landing/shop.svg" className="w-11 mt-4 mb-4" alt="eCommerce and SaaS" />
                         </div>
@@ -424,7 +450,7 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="grid my-8 pt-2 md:pt-8">
+                    <div ref={industry4.ref} className={`grid my-8 pt-2 md:pt-8 ${styles.fadeInUp} ${industry4.isVisible ? styles.visible : ''}`}>
                         <div className="col-12 lg:col-6 my-auto flex flex-column text-center lg:text-left lg:align-items-start">
                             <div
                                 className="flex align-items-center justify-content-center bg-green-100 align-self-center lg:align-self-start"

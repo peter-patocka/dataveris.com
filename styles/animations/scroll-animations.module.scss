@@ -1,0 +1,145 @@
+// Scroll-triggered animation styles
+// Inspired by keelbit.com with fade-in + slide-up effects
+
+// Base animation class - elements start hidden
+.animateElement {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+// Visible state
+.animateElement.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// Fade-in with slide-up (default)
+.fadeInUp {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fadeInUp.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// Fade-in with slight scale (for cards)
+.fadeInScale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fadeInScale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+// Stagger delays for multiple elements
+.stagger-1 {
+    transition-delay: 80ms;
+}
+
+.stagger-2 {
+    transition-delay: 160ms;
+}
+
+.stagger-3 {
+    transition-delay: 240ms;
+}
+
+.stagger-4 {
+    transition-delay: 320ms;
+}
+
+.stagger-5 {
+    transition-delay: 400ms;
+}
+
+.stagger-6 {
+    transition-delay: 480ms;
+}
+
+.stagger-7 {
+    transition-delay: 560ms;
+}
+
+.stagger-8 {
+    transition-delay: 640ms;
+}
+
+.stagger-9 {
+    transition-delay: 720ms;
+}
+
+// Shorter duration for faster animations (300ms)
+.fast {
+    transition-duration: 0.3s, 0.3s;
+}
+
+// Longer duration for slower animations (600ms)
+.slow {
+    transition-duration: 0.6s, 0.6s;
+}
+
+// Respect prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+    .animateElement,
+    .fadeInUp,
+    .fadeInScale {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// Hero section specific animations
+.heroHeadline {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.heroHeadline.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heroSubheadline {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition-delay: 120ms;
+}
+
+.heroSubheadline.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heroCta {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition-delay: 240ms;
+}
+
+.heroCta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heroImage {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 400ms;
+}
+
+.heroImage.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
