@@ -1,20 +1,7 @@
 // Scroll-triggered animation styles
 // Inspired by keelbit.com with fade-in + slide-up effects
 
-// Base animation class - elements start hidden
-.animateElement {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-}
-
-// Visible state
-.animateElement.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-// Fade-in with slide-up (default)
+// Fade-in with slide-up (default animation)
 .fadeInUp {
     opacity: 0;
     transform: translateY(20px);
@@ -87,7 +74,6 @@
 
 // Respect prefers-reduced-motion
 @media (prefers-reduced-motion: reduce) {
-    .animateElement,
     .fadeInUp,
     .fadeInScale {
         transition: none;

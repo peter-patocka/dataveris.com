@@ -12,9 +12,9 @@ interface UseScrollAnimationOptions {
  * Custom hook for scroll-triggered animations using Intersection Observer API
  * Returns a ref to attach to the element and a boolean indicating if it's visible
  */
-export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
+export function useScrollAnimation<T extends HTMLElement = HTMLElement>(options: UseScrollAnimationOptions = {}) {
     const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options;
-    const elementRef = useRef<HTMLDivElement>(null);
+    const elementRef = useRef<T>(null);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {

@@ -24,17 +24,17 @@ const Dashboard = () => {
     const heroImageVisible = useInitialAnimation(500);
 
     // About section animation
-    const aboutSection = useScrollAnimation({ threshold: 0.2 });
+    const aboutSection = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
     // Services section animation
-    const servicesSection = useScrollAnimation({ threshold: 0.1 });
+    const servicesSection = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
     // Industries section animations
-    const industriesHeader = useScrollAnimation({ threshold: 0.2 });
-    const industry1 = useScrollAnimation({ threshold: 0.2 });
-    const industry2 = useScrollAnimation({ threshold: 0.2 });
-    const industry3 = useScrollAnimation({ threshold: 0.2 });
-    const industry4 = useScrollAnimation({ threshold: 0.2 });
+    const industriesHeader = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+    const industry1 = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+    const industry2 = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+    const industry3 = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+    const industry4 = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
     const toggleMenuItemClick = () => {
         setIsHidden((prevState) => !prevState);
