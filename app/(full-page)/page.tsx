@@ -9,7 +9,7 @@ import { Ripple } from 'primereact/ripple';
 import { Divider } from 'primereact/divider';
 import { NodeRef } from '@/types';
 import { classNames } from 'primereact/utils';
-import { useScrollAnimation, useInitialAnimation } from '@/app/hooks/useScrollAnimation';
+import { useScrollAnimation, useInitialAnimation, usePulsingAnimation } from '@/app/hooks/useScrollAnimation';
 import styles from '@/styles/animations/scroll-animations.module.scss';
 
 const Dashboard = () => {
@@ -22,6 +22,7 @@ const Dashboard = () => {
     const heroSubheadlineVisible = useInitialAnimation(220);
     const heroCtaVisible = useInitialAnimation(340);
     const heroImageVisible = useInitialAnimation(500);
+    const isPulsing = usePulsingAnimation(5 * 1000);
 
     // About section animation
     const aboutSection = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
@@ -116,7 +117,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className={`flex justify-content-center md:justify-content-end ${styles.heroImage} ${heroImageVisible ? styles.visible : ''}`}>
-                        <img src="/demo/images/landing/screen-1.png" alt="Hero Image" className="w-9 md:w-auto" />
+                        <img src="/demo/images/landing/screen-1.png" alt="Hero Image" className={`w-9 md:w-auto ${styles.pulsing} ${isPulsing ? '' : styles.hidden}`} />
                     </div>
                 </div>
 

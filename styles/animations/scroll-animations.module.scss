@@ -75,7 +75,8 @@
 // Respect prefers-reduced-motion
 @media (prefers-reduced-motion: reduce) {
     .fadeInUp,
-    .fadeInScale {
+    .fadeInScale,
+    .pulsing {
         transition: none;
         opacity: 1;
         transform: none;
@@ -128,4 +129,14 @@
 .heroImage.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+// Pulsing animation for hero image (300ms fade transition for fade-out and fade-in)
+.pulsing {
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.pulsing.hidden {
+    opacity: 0;
 }
