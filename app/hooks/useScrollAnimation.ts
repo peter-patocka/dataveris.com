@@ -83,3 +83,45 @@ export function useInitialAnimation(delay: number = 0) {
 
     return isVisible;
 }
+
+/**
+ * Custom hook for pulsing animation that creates a fade-out/fade-in effect
+ * The image fades out (300ms), then fades back in (300ms), then waits until the next pulse
+ * @param interval - Time in milliseconds between pulse animations (default: 10000ms)
+ */
+export function usePulsingAnimation(interval: number = 10000) {
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        // Check for prefers-reduced-motion (SSR-safe)
+        if (typeof window === 'undefined') return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            setIsVisible(true);
+            return;
+        }
+
+        const FADE_DURATION = 600; // Must match CSS transition duration
+        const timeoutIds: NodeJS.Timeout[] = [];
+
+        const pulseTimer = setInterval(() => {
+            // Fade out
+            setIsVisible(false);
+
+            // Fade back in after fade-out completes
+            const fadeInTimeout = setTimeout(() => {
+                setIsVisible(true);
+            }, FADE_DURATION);
+
+            timeoutIds.push(fadeInTimeout);
+        }, interval);
+
+        return () => {
+            clearInterval(pulseTimer);
+            timeoutIds.forEach((id) => clearTimeout(id));
+        };
+    }, [interval]);
+
+    return isVisible;
+}

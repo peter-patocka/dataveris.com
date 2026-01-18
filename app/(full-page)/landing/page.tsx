@@ -10,11 +10,14 @@ import { Divider } from 'primereact/divider';
 import { LayoutContext } from '../../../layout/context/layoutcontext';
 import { NodeRef } from '@/types';
 import { classNames } from 'primereact/utils';
+import { usePulsingAnimation } from '@/app/hooks/useScrollAnimation';
+import styles from '@/styles/animations/scroll-animations.module.scss';
 
 const LandingPage = () => {
     const [isHidden, setIsHidden] = useState(false);
     const { layoutConfig } = useContext(LayoutContext);
     const menuRef = useRef<HTMLElement | null>(null);
+    const isPulsing = usePulsingAnimation(5 * 1000);
 
     const toggleMenuItemClick = () => {
         setIsHidden((prevState) => !prevState);
@@ -81,7 +84,7 @@ const LandingPage = () => {
                         <Button type="button" label="Get Started" rounded className="text-xl border-none mt-3 bg-blue-500 font-normal line-height-3 px-3 text-white"></Button>
                     </div>
                     <div className="flex justify-content-center md:justify-content-end">
-                        <img src="/demo/images/landing/screen-1.png" alt="Hero Image" className="w-9 md:w-auto" />
+                        <img src="/demo/images/landing/screen-1.png" alt="Hero Image" className={`w-9 md:w-auto ${styles.pulsing} ${isPulsing ? '' : styles.hidden}`} />
                     </div>
                 </div>
 
