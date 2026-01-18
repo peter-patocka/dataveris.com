@@ -383,7 +383,7 @@ const Dashboard = () => {
 
                     <div ref={industry1.ref} className={`grid mt-8 pb-2 md:pb-8 ${styles.fadeInUp} ${industry1.isVisible ? styles.visible : ''}`}>
                         <div className="flex justify-content-center col-12 lg:col-6 bg-purple-100 p-0 flex-order-1 lg:flex-order-0" style={{ borderRadius: '8px' }}>
-                            <img src="/demo/images/landing/doctor-and-patients.svg" className="w-11 mt-4 mb-4" alt="Healthcare" />
+                            <img src="/demo/images/landing/doctor.jpg" className="w-11 mt-4 mb-4" alt="Healthcare" />
                         </div>
 
                         <div className="col-12 lg:col-6 my-auto flex flex-column lg:align-items-end text-center lg:text-right">
@@ -422,14 +422,14 @@ const Dashboard = () => {
                             </span>
                         </div>
 
-                        <div className="flex justify-content-end flex-order-1 sm:flex-order-2 col-12 lg:col-6 bg-yellow-100 p-0" style={{ borderRadius: '8px' }}>
-                            <img src="/demo/images/landing/bank.svg" className="w-11 m-auto" alt="Finance and Fintech" />
+                        <div className="flex justify-content-end flex-order-1 sm:flex-order-2 col-12 lg:col-6 bg-yellow-100 px-0 py-4" style={{ borderRadius: '8px' }}>
+                            <img src="/demo/images/landing/finance.jpg" className="w-11 m-auto" alt="Finance and Fintech" />
                         </div>
                     </div>
 
                     <div ref={industry3.ref} className={`grid mt-8 pb-2 md:pb-8 ${styles.fadeInUp} ${industry3.isVisible ? styles.visible : ''}`}>
                         <div className="flex justify-content-center col-12 lg:col-6 bg-blue-100 p-0 flex-order-1 lg:flex-order-0" style={{ borderRadius: '8px' }}>
-                            <img src="/demo/images/landing/shop.svg" className="w-11 mt-4 mb-4" alt="eCommerce and SaaS" />
+                            <img src="/demo/images/landing/ecommerce.jpg" className="w-11 mt-4 mb-4" alt="eCommerce and SaaS" />
                         </div>
 
                         <div className="col-12 lg:col-6 my-auto flex flex-column lg:align-items-end text-center lg:text-right">
@@ -469,7 +469,7 @@ const Dashboard = () => {
                         </div>
 
                         <div className="flex justify-content-end flex-order-1 sm:flex-order-2 col-12 lg:col-6 bg-green-100 p-0" style={{ borderRadius: '8px' }}>
-                            <img src="/demo/images/landing/government.svg" className="w-11 m-auto mt-4 mb-4" alt="Government" />
+                            <img src="/demo/images/landing/government.jpg" className="w-11 m-auto mt-4 mb-4" alt="Government" />
                         </div>
                     </div>
                 </div>
